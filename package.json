@@ -1,6 +1,6 @@
 {
   "name": "data-request",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "数据请求封装",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,6 +11,10 @@
   "keywords": [
     "数据请求"
   ],
+  "repository": {
+    "type": "GitHub",
+    "url": "https://github.com/Zql-mll/data-request.git"
+  },
   "author": "sdh",
   "license": "ISC",
   "devDependencies": {
