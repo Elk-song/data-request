@@ -8,21 +8,22 @@ D： data数据类型
 
 ### 参数释义：
 
-|   参数名   | 参数类型 | 参数描述 |
-| :--------: | :------: | :------: |
-|  **url**   |  string  | 接口url  |
-| **params** |    T     |   参数   |
-|  **data**  |    D     | body传值 |
+|   参数名    |      参数类型       | 参数描述 |
+| :---------: | :-----------------: | :------: |
+|   **url**   |       string        | 接口url  |
+| **params**  |          T          |   参数   |
+|  **data**   |          D          | body传值 |
+| **timeout** | number \| undefined | 超时时间 |
 
 ### 方法描述：
 
 |      方法名       | 携带泛型 |       参数        |  方法描述  |
 | :---------------: | :------: | :---------------: | :--------: |
-|  **getRequest**   |   R，T   |    url，params    |  get请求   |
-| **deleteRequest** |   R，T   |    url，params    | delete请求 |
-|  **postRequest**  | R, D, T  | url，data，params |  post请求  |
-|  **putRequest**   | R, D, T  | url，data，params |  put请求   |
-| **patchRequest**  | R, D, T  | url，data，params | patch请求  |
+|  **getRequest**   |   R，T   |    url，params，timeout    |  get请求   |
+| **deleteRequest** |   R，T   |    url，params，timeout    | delete请求 |
+|  **postRequest**  | R, D, T  | url，data，params，timeout |  post请求  |
+|  **putRequest**   | R, D, T  | url，data，params，timeout |  put请求   |
+| **patchRequest**  | R, D, T  | url，data，params，timeout | patch请求  |
 
 ### 设计描述：
 
@@ -94,5 +95,5 @@ npm i data-request --save
 
 使用示例：
 
-![image-20200902175619191](https://picbucket-1301820142.cos.ap-shanghai.myqcloud.com/img/image-20200902175619191.png)
+![image-20200903140859808](https://picbucket-1301820142.cos.ap-shanghai.myqcloud.com/img/image-20200903140859808.png)
 

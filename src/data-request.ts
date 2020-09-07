@@ -23,8 +23,8 @@ export default class DataRequest implements IDataRequest {
    * @returns {Promise<R>} 返回值
    * @memberof DataRequest
    */
-  public getRequest<R, T>(_url: string, _params?: T): Promise<R> {
-    return this.getOrDeleteRequest<R, T>(_url, _params, "get");
+  public getRequest<R, T>(_url: string, _params?: T, _timeout?: number): Promise<R> {
+    return this.getOrDeleteRequest<R, T>(_url, _params, "get", _timeout);
   }
   /**
    * @description delete请求
@@ -35,8 +35,8 @@ export default class DataRequest implements IDataRequest {
    * @returns {Promise<R>} 返回值
    * @memberof DataRequest
    */
-  public deleteRequest<R, T>(_url: string, _params?: T): Promise<R> {
-    return this.getOrDeleteRequest<R, T>(_url, _params, "delete");
+  public deleteRequest<R, T>(_url: string, _params?: T, _timeout?: number): Promise<R> {
+    return this.getOrDeleteRequest<R, T>(_url, _params, "delete", _timeout);
   }
   /**
    * @description post请求
@@ -49,8 +49,8 @@ export default class DataRequest implements IDataRequest {
    * @returns {Promise<R>} 返回值
    * @memberof DataRequest
    */
-  public postRequest<R, D, T>(_url: string, _data: D, _params?: T): Promise<R> {
-    return this.pRequest<R, D, T>(_url, "post", _data, _params);
+  public postRequest<R, D, T>(_url: string, _data: D, _params?: T, _timeout?: number): Promise<R> {
+    return this.pRequest<R, D, T>(_url, "post", _data, _params, _timeout);
   }
   /**
    * @description put请求
@@ -63,8 +63,8 @@ export default class DataRequest implements IDataRequest {
    * @returns {Promise<R>} 返回值
    * @memberof DataRequest
    */
-  public putRequest<R, D, T>(_url: string, _data: D, _params?: T): Promise<R> {
-    return this.pRequest<R, D, T>(_url, "put", _data, _params);
+  public putRequest<R, D, T>(_url: string, _data: D, _params?: T, _timeout?: number): Promise<R> {
+    return this.pRequest<R, D, T>(_url, "put", _data, _params, _timeout);
   }
   /**
    * @description patch请求
@@ -82,12 +82,13 @@ export default class DataRequest implements IDataRequest {
   }
   //#endregion
 
-  private getOrDeleteRequest<R, T>(_url: string, _params?: T, _method?: Method): Promise<R> {
+  private getOrDeleteRequest<R, T>(_url: string, _params?: T, _method?: Method, _timeout?: number): Promise<R> {
     return new Promise((resolve, reject) => {
       this.request({
         method: typeof _method === "undefined" ? "get" : _method,
         url: _url,
-        params: _params
+        params: _params,
+        timeout: _timeout
       }).then((response: any) => {
         resolve(response);
       }).catch((error: any) => {
@@ -96,13 +97,14 @@ export default class DataRequest implements IDataRequest {
     })
   }
 
-  private pRequest<R, D, T>(_url: string, _method: Method, _data: D, _params?: T): Promise<R> {
+  private pRequest<R, D, T>(_url: string, _method: Method, _data: D, _params?: T, _timeout?: number): Promise<R> {
     return new Promise((resolve, reject) => {
       this.request({
         method: _method,
         url: _url,
         params: typeof _params !== "undefined" ? _params : {},
-        data: _data
+        data: _data,
+        timeout: _timeout
       }).then((response: any) => {
         resolve(response);
       }).catch((error: any) => {

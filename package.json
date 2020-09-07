@@ -1,6 +1,6 @@
 {
   "name": "data-request",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "数据请求封装",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

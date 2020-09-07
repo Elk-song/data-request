@@ -14,7 +14,7 @@ export default class DataRequest implements IDataRequest {
      * @returns {Promise<R>} 返回值
      * @memberof DataRequest
      */
-    getRequest<R, T>(_url: string, _params?: T): Promise<R>;
+    getRequest<R, T>(_url: string, _params?: T, _timeout?: number): Promise<R>;
     /**
      * @description delete请求
      * @template R 返回数据类型
@@ -24,7 +24,7 @@ export default class DataRequest implements IDataRequest {
      * @returns {Promise<R>} 返回值
      * @memberof DataRequest
      */
-    deleteRequest<R, T>(_url: string, _params?: T): Promise<R>;
+    deleteRequest<R, T>(_url: string, _params?: T, _timeout?: number): Promise<R>;
     /**
      * @description post请求
      * @template R  返回数据类型
@@ -36,7 +36,7 @@ export default class DataRequest implements IDataRequest {
      * @returns {Promise<R>} 返回值
      * @memberof DataRequest
      */
-    postRequest<R, D, T>(_url: string, _data: D, _params?: T): Promise<R>;
+    postRequest<R, D, T>(_url: string, _data: D, _params?: T, _timeout?: number): Promise<R>;
     /**
      * @description put请求
      * @template R  返回数据类型
@@ -48,7 +48,7 @@ export default class DataRequest implements IDataRequest {
      * @returns {Promise<R>} 返回值
      * @memberof DataRequest
      */
-    putRequest<R, D, T>(_url: string, _data: D, _params?: T): Promise<R>;
+    putRequest<R, D, T>(_url: string, _data: D, _params?: T, _timeout?: number): Promise<R>;
     /**
      * @description patch请求
      * @template R  返回数据类型
